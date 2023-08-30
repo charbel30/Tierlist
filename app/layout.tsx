@@ -1,7 +1,7 @@
-import "../styles/global.css";
+import "../app/global.css";
 import { Inter } from "next/font/google";
 import { Button } from "@/components/ui/button";
-import { ModeToggle, ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "@/components/theme-provider";
 import { NavigationBar } from "@/components/navigation_bar";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -17,15 +17,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    
+    <html className="min-h-screen font-sans antialiased" lang="en">
+     
       <head />
-      <body className="relative m-8  ">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+     
+      <body className="m-0 flex flex-col p-0">
+      <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <NavigationBar />
 
-          {children}
-        </ThemeProvider>
+          <main className="   container mx-auto flex-grow p-4">{children}
+
+          <Button    className="mt-4 bg-primary ">
+            Button
+          </Button>
+          
+          </main>
+          </ThemeProvider>
       </body>
+     
     </html>
+
   );
 }

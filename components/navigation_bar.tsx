@@ -15,7 +15,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { ModeToggle } from "./theme-provider";
+import { ModeToggle , ThemeProvider } from "./theme-provider";
 
 /*const components: { title: string; href: string; description: string }[] = [
   {
@@ -57,56 +57,67 @@ import { ModeToggle } from "./theme-provider";
 
 export function NavigationBar() {
   return (
-    <NavigationMenu>
-      <NavigationMenuList className="p-4">
-        <NavigationMenuItem className=" pl-32 pr-14   transition ease-in-out ">
-          <NavigationMenuLink asChild>
-            <a href="/">
-              <Image
-                src="/icons/logo.svg"
-                alt="website logo"
-                sizes="100vw"
-                width={10}
-                height={10}
-                style={{
-                  width: "100%",
-                  height: "auto",
-                }}
-              />
-            </a>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-
-        <NavigationMenuItem>
-          <NavigationMenuContent></NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link href="/login" legacyBehavior passHref>
-            <Button
-              variant="outline"
-              className=" scale-0.76  transition ease-in-out hover:scale-[1.05]   hover:drop-shadow-sm  active:scale-[0.95]"
-            >
-              <NavigationMenuLink>Sign in</NavigationMenuLink>
-            </Button>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link href="/login" legacyBehavior passHref>
-            <Button className="  group    transition-all  ease-in-out  hover:scale-[1.05] active:scale-[0.98]   ">
-              <NavigationMenuLink>Register</NavigationMenuLink>
-              <Icon
-                icon="material-symbols:arrow-forward-rounded"
-                width={18} 
-                className="scale-  pt-1 transition-all duration-500 ease-in-out  hover:!translate-x-2 group-hover:translate-x-1"
-              ></Icon>
-            </Button>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <ModeToggle />
-        </NavigationMenuItem>
-      </NavigationMenuList>
-    </NavigationMenu>
+    <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+    <header className="  sticky z-40 m-5 w-full p-4 ">
+      <div className="container flex h-auto  w-auto   space-x-4  sm:justify-between sm:space-x-0">
+    
+        <NavigationMenu>
+          <NavigationMenuList className="flex-end p-4">
+            <NavigationMenuItem className=" pl-32 pr-14   transition ease-in-out ">
+              <NavigationMenuLink asChild>
+                <a href="/">
+                  <Image
+                    src="/icons/logo.svg"
+                    alt="website logo"
+                    sizes="100vw"
+                    width={10}
+                    height={10}
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                    }}
+                  />
+                </a>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
+        <NavigationMenu className=" ">
+          <NavigationMenuList className="flex-end p-4">
+            <NavigationMenuItem>
+              <NavigationMenuContent></NavigationMenuContent>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="/login" className="" legacyBehavior passHref>
+                <Button
+                  variant="outline"
+                  className=" scale-0.76  transition ease-in-out hover:scale-[1.05]   hover:drop-shadow-sm  active:scale-[0.95]"
+                >
+                  <NavigationMenuLink>Sign in</NavigationMenuLink>
+                </Button>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="/SignUp" className="" legacyBehavior passHref>
+                <Button className="group scale-105 rounded-lg bg-blue-200 px-4 py-3 font-bold text-blue-800 shadow transition-all ease-in-out hover:scale-[1.10] hover:bg-blue-300 hover:shadow-lg active:scale-[0.98] dark:bg-blue-600 dark:text-white dark:hover:bg-blue-700">
+                  <NavigationMenuLink>Register</NavigationMenuLink>
+                  <Icon
+                    icon="material-symbols:arrow-forward-rounded"
+                    width={18}
+                    className="scale-105 pt-1 transition-all duration-500 ease-in-out hover:!translate-x-2 group-hover:translate-x-1"
+                  ></Icon>
+                </Button>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <ModeToggle />
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
+      
+      </div>
+    </header>
+    </ThemeProvider>
   );
 }
 
