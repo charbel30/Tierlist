@@ -18,17 +18,17 @@ export default function RootLayout({
 }) {
   return (
     
-    <html className="min-h-screen font-sans antialiased" lang="en">
+    <html className=" " lang="en">
      
       <head />
      
-      <body className="m-0 flex flex-col p-0">
+      <body className="m-0 flex flex-col p-0 bg-background min-h-screen font-sans antialiased">
       <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <NavigationBar />
 
-          <main className="   container mx-auto flex-grow p-4">{children}
+          <main className=" container mx-auto flex-grow p-4">{children}
 
-          <Button    className="mt-4 bg-primary ">
+          <Button    className="mt-4">
             Button
           </Button>
           
