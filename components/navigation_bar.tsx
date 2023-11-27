@@ -15,7 +15,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { ModeToggle , ThemeProvider } from "./theme-provider";
+import { ModeToggle } from "./theme-provider";
 
 /*const components: { title: string; href: string; description: string }[] = [
   {
@@ -57,13 +57,11 @@ import { ModeToggle , ThemeProvider } from "./theme-provider";
 
 export function NavigationBar() {
   return (
-    <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-    <header className="  sticky z-40 m-5 w-full p-4 ">
-      <div className="container flex h-auto  w-auto   space-x-4  sm:justify-between sm:space-x-0">
-    
+    <header className="sticky top-0 z-50  w-full  p-4 font-mono ">
+      <div className="flex   h-auto !pl-[4.5vw]  !pr-0 md:container     sm:justify-between sm:space-x-0">
         <NavigationMenu>
           <NavigationMenuList className="flex-end p-4">
-            <NavigationMenuItem className=" pl-32 pr-14   transition ease-in-out ">
+            <NavigationMenuItem className=" pr-10   transition ease-in-out ">
               <NavigationMenuLink asChild>
                 <a href="/">
                   <Image
@@ -73,12 +71,37 @@ export function NavigationBar() {
                     width={10}
                     height={10}
                     style={{
-                      width: "100%",
+                      width: "auto",
                       height: "auto",
                     }}
                   />
                 </a>
               </NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem className=" pr-10   transition ease-in-out ">
+              <Button className=" group    scale-[1.20] hover:scale-125 transform   overflow-hidden   border-2  border-foreground bg-background text-foreground shadow-[1px_2px_#323232] transition-all  ease-in active:translate-x-[2px] active:translate-y-[2px] active:shadow-[0px_0px_#323232]  dark:border-foreground dark:bg-secondary dark:text-foreground dark:shadow-[1px_2px_#dedede] dark:active:shadow-[0px_0px_#dedede]">
+                <span className=" mr-8   font-semibold transition-all duration-700 ease-in-out  group-hover:text-transparent">
+                  Create
+                </span>
+                <span className="absolute right-0 flex h-full w-[37px]  items-center justify-center bg-[#dedede] dark:bg-background transition-all duration-300 ease-in-out group-hover:w-28 ">
+                  <Icon
+                    width={20}
+                    className=" scale-105  items-center justify-center text-foreground transition-all duration-500 ease-in-out hover:!translate-x-2 hover:translate-y-0 dark:text-foreground "
+                    icon="ic:round-plus"
+                  ></Icon>
+                </span>
+              </Button>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem className=" pr-10   transition ease-in-out ">
+              <a href="/">
+                <Button
+                  variant="outline"
+                  className=" scale-0.76  transition ease-in-out hover:scale-[1.05]   hover:drop-shadow-sm  active:scale-[0.95]"
+                >
+                  Overview
+                </Button>
+              </a>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
@@ -104,7 +127,7 @@ export function NavigationBar() {
                   <Icon
                     icon="material-symbols:arrow-forward-rounded"
                     width={18}
-                    className="scale-105 pt-1 transition-all duration-500 ease-in-out hover:!translate-x-2 group-hover:translate-x-1"
+                    className="  scale-105 items-center justify-center pt-[2px] transition-all duration-500 ease-in-out hover:!translate-x-2 group-hover:translate-x-1"
                   ></Icon>
                 </Button>
               </Link>
@@ -114,10 +137,8 @@ export function NavigationBar() {
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
-      
       </div>
     </header>
-    </ThemeProvider>
   );
 }
 
@@ -131,13 +152,13 @@ const ListItem = React.forwardRef<
         <a
           ref={ref}
           className={cn(
-            "hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors",
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
             className,
           )}
           {...props}
         >
           <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
             {children}
           </p>
         </a>

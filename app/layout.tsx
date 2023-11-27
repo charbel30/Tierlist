@@ -1,10 +1,11 @@
 import "../app/global.css";
-import { Inter } from "next/font/google";
 import { Button } from "@/components/ui/button";
 import { ThemeProvider } from "@/components/theme-provider";
 import { NavigationBar } from "@/components/navigation_bar";
+import { M_PLUS_Rounded_1c , Open_Sans} from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const mplus = M_PLUS_Rounded_1c({ variable: '--font-M-Plus-Rounded-mono', weight: '400' , subsets: ['latin'] , display: 'swap' });
+const opensans = Open_Sans({ variable: '--font-Open-Sans', weight: '400' , subsets: ['latin'] , display: 'swap' });
 
 export const metadata = {
   title: "Create Next App",
@@ -18,19 +19,17 @@ export default function RootLayout({
 }) {
   return (
     
-    <html className=" " lang="en">
+    <html  lang="en">
      
       <head />
      
-      <body className="m-0 flex flex-col p-0 bg-background min-h-screen font-sans antialiased">
+      <body className={`${mplus.className} bg-background min-h-screen font-sans antialiased`}>
       <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <NavigationBar />
 
-          <main className=" container mx-auto flex-grow p-4">{children}
+          <main className="  mx-auto flex-grow p-4">{children}
 
-          <Button    className="mt-4">
-            Button
-          </Button>
+         
           
           </main>
           </ThemeProvider>
